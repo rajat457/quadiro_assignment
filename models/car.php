@@ -1,46 +1,42 @@
 <?php
-include '../dp.php';
+include '../dp.php'; // Ensure this file initializes $pdo
 
 function getAllCars($sortColumn = 'id', $sortOrder = 'ASC') {
-    global $conn;
+    global $pdo;
     $allowedSortColumns = ['id', 'car_name', 'manufacturing_year', 'price'];
     $sortColumn = in_array($sortColumn, $allowedSortColumns) ? $sortColumn : 'id';
     $sortOrder = $sortOrder === 'DESC' ? 'DESC' : 'ASC';
 
-    $stmt = $conn->prepare("SELECT * FROM cars ORDER BY $sortColumn $sortOrder");
+    $stmt = $pdo->prepare("SELECT * FROM cars ORDER BY $sortColumn $sortOrder");
     $stmt->execute();
-    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function createCar($carName, $manufacturingYear, $price) {
-    global $conn;
+    global $pdo;
     $sql = "INSERT INTO cars (car_name, manufacturing_year, price) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sii", $carName, $manufacturingYear, $price);
-    $stmt->execute();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$carName, $manufacturingYear, $price]);
 }
 
 function getCarById($id) {
-    global $conn;
-    $stmt = $conn->prepare("SELECT * FROM cars WHERE id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    return $stmt->get_result()->fetch_assoc();
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM cars WHERE id = ?");
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 function updateCar($id, $carName, $manufacturingYear, $price) {
-    global $conn;
+    global $pdo;
     $sql = "UPDATE cars SET car_name=?, manufacturing_year=?, price=? WHERE id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("siii", $carName, $manufacturingYear, $price, $id);
-    $stmt->execute();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$carName, $manufacturingYear, $price, $id]);
 }
 
 function deleteCar($id) {
-    global $conn;
+    global $pdo;
     $sql = "DELETE FROM cars WHERE id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
 }
 ?>
