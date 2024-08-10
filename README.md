@@ -1,6 +1,6 @@
 # Quadiro Technologies Assignment - Car Management System 🚗
 
-This project is a web application developed as an assignment for Quadiro Technologies. The system is designed for managing car records with an admin interface for CRUD operations.
+This project is a web application developed as an assignment for Quadiro Technologies. The system is designed for managing car records with both admin and user interfaces.
 
 ## Features
 
@@ -15,12 +15,17 @@ This project is a web application developed as an assignment for Quadiro Technol
   - Displays a list of all cars.
   - Shows basic statistics such as the total number of cars.
 
+### User Features
+- **User Login:** Secure user login functionality. The login page prominently displays "Assignment for Quadiro Technologies."
+- **View Cars:** Users can view the list of cars added by the admin.
+- **Search and Filter:** Users can search and filter the list of cars by various criteria.
+
 ## Technologies Used
 - **Backend:** PHP
 - **Frontend:** Bootstrap
 
 ## Deployment
-The application has been deployed on AWS EC2 and can be accessed using the link below:
+The application has been deployed on AWS EC2 and can be accessed using the links below:
 
 - **Hosted Link:** [Car Management System](http://3.25.54.232/quadiro_assignment/)
 
@@ -29,7 +34,14 @@ The application has been deployed on AWS EC2 and can be accessed using the link 
 - **URL:** [Admin Login](http://3.25.54.232/quadiro_assignment/controllers/login.php)
 - **Credentials:** 
   - **Username:** admin
-  - **Password:** password
+  - **Password:** password123
+
+### Accessing the User Interface
+
+- **URL:** [User Login](http://3.25.54.232/quadiro_assignment/user/login.php)
+- **Credentials:** 
+  - **Username:** user
+  - **Password:** password123
 
 ## Running the Project Locally
 
