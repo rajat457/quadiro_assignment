@@ -64,13 +64,13 @@ $totalCars = count($cars);
             <tbody>
                 <?php foreach ($cars as $car): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($car['id']); ?></td>
-                    <td><?php echo htmlspecialchars($car['car_name']); ?></td>
-                    <td><?php echo htmlspecialchars($car['manufacturing_year']); ?></td>
-                    <td><?php echo htmlspecialchars($car['price']); ?></td>
+                    <td><?php echo $car['id']; ?></td>
+                    <td><?php echo $car['car_name']; ?></td>
+                    <td><?php echo $car['manufacturing_year']; ?></td>
+                    <td><?php echo $car['price']; ?></td>
                     <td>
-                        <a href="../controllers/edit.php?id=<?php echo htmlspecialchars($car['id']); ?>" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="../controllers/delete.php?id=<?php echo htmlspecialchars($car['id']); ?>" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="../controllers/edit.php?id=<?php echo $car['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="../controllers/delete.php?id=<?php echo $car['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
