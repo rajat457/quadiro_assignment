@@ -29,9 +29,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- Login Button -->
+        <!-- Login Buttons -->
         <h1>Welcome to the Car Management System</h1>
-        <a href="controllers/login.php" class="btn btn-primary">Login</a>
+        <a href="controllers\login.php" class="btn btn-primary btn-login">Admin Login</a>
+        <a href="user\login.php" class="btn btn-secondary btn-login">User Login</a>
 
         <!-- Assignment Description -->
         <div class="assignment-description">

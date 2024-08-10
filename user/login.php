@@ -1,17 +1,20 @@
 <?php
-// Display errors for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+session_start();
 
-// This is a placeholder. Implement actual authentication logic.
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Dummy login validation
-    if ($_POST['username'] === 'admin' && $_POST['password'] === 'password123') {
-        header('Location: ../views/dashboard.php');
-        exit();
+// Hardcoded username and password
+$valid_username = "user";
+$valid_password = "password123";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Check if the entered username and password match the hardcoded values
+    if ($username === $valid_username && $password === $valid_password) {
+        $_SESSION['user_id'] = 1; // Arbitrary user ID for session management
+        header("Location: dashboard.php");
     } else {
-        $error = 'Invalid credentials';
+        $error = "Invalid username or password.";
     }
 }
 ?>
@@ -26,11 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Admin Login</h2>
-        <h2>Assignment for Quadiro Technologies</h2>
-        <?php if (isset($error)): ?>
-        <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
-        <?php endif; ?>
+    <h2>User Login</h2>
+    <h2>Assignment for Quadiro Technologies</h2>
+        <?php if (isset($error)) { echo "<div class='alert alert-danger'>$error</div>"; } ?>
         <form action="login.php" method="POST">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
