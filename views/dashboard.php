@@ -37,19 +37,14 @@ $totalCars = count($cars);
         <!-- Sort Options -->
         <div class="mb-3">
             <form action="dashboard.php" method="GET">
-                <div class="d-flex align-items-center">
-                    <label for="sort" class="form-label me-2">Sort By:</label>
-                    <select name="sort" id="sort" class="form-select me-2" onchange="this.form.submit()">
-                        <option value="id" <?php echo $sortColumn == 'id' ? 'selected' : ''; ?>>ID</option>
-                        <option value="car_name" <?php echo $sortColumn == 'car_name' ? 'selected' : ''; ?>>Name</option>
-                        <option value="manufacturing_year" <?php echo $sortColumn == 'manufacturing_year' ? 'selected' : ''; ?>>Year</option>
-                        <option value="price" <?php echo $sortColumn == 'price' ? 'selected' : ''; ?>>Price</option>
-                    </select>
-                    <select name="order" class="form-select" onchange="this.form.submit()">
-                        <option value="ASC" <?php echo $sortOrder == 'ASC' ? 'selected' : ''; ?>>Ascending</option>
-                        <option value="DESC" <?php echo $sortOrder == 'DESC' ? 'selected' : ''; ?>>Descending</option>
-                    </select>
-                </div>
+                <label for="sort" class="form-label">Sort By:</label>
+                <select name="sort" id="sort" class="form-select" onchange="this.form.submit()">
+                    <option value="id" <?php echo $sortColumn == 'id' ? 'selected' : ''; ?>>ID</option>
+                    <option value="car_name" <?php echo $sortColumn == 'car_name' ? 'selected' : ''; ?>>Name</option>
+                    <option value="manufacturing_year" <?php echo $sortColumn == 'manufacturing_year' ? 'selected' : ''; ?>>Year</option>
+                    <option value="price" <?php echo $sortColumn == 'price' ? 'selected' : ''; ?>>Price</option>
+                </select>
+                <input type="hidden" name="order" value="<?php echo $sortOrder; ?>">
             </form>
         </div>
 
@@ -69,13 +64,13 @@ $totalCars = count($cars);
             <tbody>
                 <?php foreach ($cars as $car): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($car['id']); ?></td>
-                    <td><?php echo htmlspecialchars($car['car_name']); ?></td>
-                    <td><?php echo htmlspecialchars($car['manufacturing_year']); ?></td>
-                    <td><?php echo htmlspecialchars($car['price']); ?></td>
+                    <td><?php echo $car['id']; ?></td>
+                    <td><?php echo $car['car_name']; ?></td>
+                    <td><?php echo $car['manufacturing_year']; ?></td>
+                    <td><?php echo $car['price']; ?></td>
                     <td>
-                        <a href="../controllers/edit.php?id=<?php echo htmlspecialchars($car['id']); ?>" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="../controllers/delete.php?id=<?php echo htmlspecialchars($car['id']); ?>" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="../controllers/edit.php?id=<?php echo $car['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="../controllers/delete.php?id=<?php echo $car['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
