@@ -1,8 +1,12 @@
 services:
   - type: web
-    name: my-php-app
-    env: php
-    buildCommand: "composer install"
-    startCommand: "php -S 0.0.0.0:10000 -t public"
-    branch: main
-    staticPublishPath: public
+    name: php-app
+    env: docker
+    dockerfile: Dockerfile
+    build:
+      dockerfile: Dockerfile
+    plan: free
+    routes:
+      - type: basic
+        name: my-php-app
+        path: /
