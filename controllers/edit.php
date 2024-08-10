@@ -6,20 +6,20 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $carId = $_POST['id'];
+if (isset($_GET['id'])) {
+    $id = (int)$_GET['id'];
+    $car = getCarById($id);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $carName = $_POST['car_name'];
     $manufacturingYear = $_POST['manufacturing_year'];
     $price = $_POST['price'];
 
-    updateCar($carId, $carName, $manufacturingYear, $price);
+    updateCar($id, $carName, $manufacturingYear, $price);
 
-    // Redirect to dashboard after updating
-    header("Location: ../views/dashboard.php");
-    exit(); // Ensure no further code is executed
-} elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
-    $carId = $_GET['id'];
-    $car = getCarById($carId); // Fetch car details by ID
+    header('Location: ../views/dashboard.php');
+    exit();
 }
 ?>
 
@@ -34,8 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container mt-5">
         <h2>Edit Car</h2>
-        <form action="edit.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo htmlspecialchars($car['id']); ?>">
+        <form action="edit.php?id=<?php echo $id; ?>" method="POST">
             <div class="mb-3">
                 <label for="car_name" class="form-label">Car Name</label>
                 <input type="text" class="form-control" id="car_name" name="car_name" value="<?php echo htmlspecialchars($car['car_name']); ?>" required>
@@ -50,9 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <button type="submit" class="btn btn-primary">Update Car</button>
         </form>
-        <a href="../views/dashboard.php" class="btn btn-secondary mt-3">Back to Dashboard</a>
     </div>
-
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
