@@ -30,7 +30,7 @@
 <body>
     <div class="container">
         <!-- Login Button -->
-        <a href="login.php" class="btn btn-primary btn-lg btn-login">Login</a>
+        <a href="views\login.php" class="btn btn-primary btn-lg btn-login">Login</a>
 
         <!-- Assignment Description -->
         <div class="assignment-description">
