@@ -1,21 +1,25 @@
 <?php
 include '../models/car.php';
 
-// Retrieve car ID from URL
-$id = $_GET['id'];
-$car = getCarById($id);
+// Display errors for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $carId = $_POST['id'];
     $carName = $_POST['car_name'];
     $manufacturingYear = $_POST['manufacturing_year'];
     $price = $_POST['price'];
 
-    // Update car details
-    updateCar($id, $carName, $manufacturingYear, $price);
+    updateCar($carId, $carName, $manufacturingYear, $price);
 
-    // Redirect to dashboard
+    // Redirect to dashboard after updating
     header("Location: ../views/dashboard.php");
-    exit();
+    exit(); // Ensure no further code is executed
+} elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
+    $carId = $_GET['id'];
+    $car = getCarById($carId); // Fetch car details by ID
 }
 ?>
 
@@ -30,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container mt-5">
         <h2>Edit Car</h2>
-        <form action="edit.php?id=<?php echo $id; ?>" method="POST">
+        <form action="edit.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($car['id']); ?>">
             <div class="mb-3">
                 <label for="car_name" class="form-label">Car Name</label>
                 <input type="text" class="form-control" id="car_name" name="car_name" value="<?php echo htmlspecialchars($car['car_name']); ?>" required>
@@ -45,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="btn btn-primary">Update Car</button>
         </form>
+        <a href="../views/dashboard.php" class="btn btn-secondary mt-3">Back to Dashboard</a>
     </div>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
