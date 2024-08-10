@@ -30,7 +30,8 @@
 <body>
     <div class="container">
         <!-- Login Button -->
-        <a href="views\login.php" class="btn btn-primary btn-lg btn-login">Login</a>
+        <h1>Welcome to the Car Management System</h1>
+        <a href="controllers/login.php" class="btn btn-primary">Login</a>
 
         <!-- Assignment Description -->
         <div class="assignment-description">
