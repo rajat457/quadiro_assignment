@@ -1,7 +1,7 @@
 <?php
 $dsn = 'postgresql://root:NsRr511aPIRDaJt4HcLmgEy5jWJ6g0IA@dpg-cqrho7ggph6c739ve1n0-a/quadiro_db';
-$username = 'if0_37077200';
-$password = 'your_password';
+$username = 'root';
+$password = 'NsRr511aPIRDaJt4HcLmgEy5jWJ6g0IA';
 
 try {
     $pdo = new PDO($dsn, $username, $password);
