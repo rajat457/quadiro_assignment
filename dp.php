@@ -1,5 +1,5 @@
 <?php
-$dsn = 'postgresql://root:NsRr511aPIRDaJt4HcLmgEy5jWJ6g0IA@dpg-cqrho7ggph6c739ve1n0-a/quadiro_db';
+$dsn = 'postgresql://root:NsRr511aPIRDaJt4HcLmgEy5jWJ6g0IA@dpg-cqrho7ggph6c739ve1n0-a.oregon-postgres.render.com/quadiro_db';
 $username = 'root';
 $password = 'NsRr511aPIRDaJt4HcLmgEy5jWJ6g0IA';
 
