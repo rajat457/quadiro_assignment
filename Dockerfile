@@ -1,7 +1,9 @@
-# Use the official PHP image from the Docker Hub
 FROM php:7.4-apache
 
-# Copy your PHP files into the container
+# Install PHP extensions
+RUN docker-php-ext-install mysqli
+
+# Copy your PHP files
 COPY . /var/www/html/
 
 # Expose port 80
