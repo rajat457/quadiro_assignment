@@ -33,7 +33,10 @@ $totalCars = count($cars);
     <div class="container mt-5">
         <h2>Dashboard</h2>
         <p>Total Cars: <?php echo $totalCars; ?></p>
-
+        <!-- Logout Button -->
+        <div class="text-right mb-3">
+            <a href="../controllers/login.php" class="btn btn-danger">Logout</a>
+        </div>
         <!-- Sort Options -->
         <div class="mb-3">
             <form action="dashboard.php" method="GET">
