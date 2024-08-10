@@ -69,7 +69,7 @@ To run this project on your local machine:
 
 
 ### Admin Dashboard 📊
-![Screenshot 2024-08-10 212622](https://github.com/user-attachments/assets/61253480-d27a-417d-88df-1bbf6291b726)
+![Screenshot 2024-08-10 215957](https://github.com/user-attachments/assets/0c9ad59b-bb5d-4dc0-a68b-964e66facb4b)
 
 
 ### User Login Screen 🔑
@@ -77,5 +77,5 @@ To run this project on your local machine:
 
 
 ### User Dashboard 📋
-![Screenshot 2024-08-10 212724](https://github.com/user-attachments/assets/11dd747c-bf7c-44de-aa29-017f12154a6b)
+![Screenshot 2024-08-10 215918](https://github.com/user-attachments/assets/d517dc7e-e268-401f-ac1a-ae50a84764b0)
 
