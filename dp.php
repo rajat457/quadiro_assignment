@@ -1,17 +1,14 @@
 <?php
-$host = 'dpg-cqrho7ggph6c739ve1n0-a.oregon-postgres.render.com';
-$port = '5432'; // Default PostgreSQL port
-$dbname = 'quadiro_db';
-$username = 'root';
-$password = 'NsRr511aPIRDaJt4HcLmgEy5jWJ6g0IA';
+$servername = "sql110.infinityfree.com";
+$username = "if0_37077798";
+$password = "IbUh9VlbleeE";
+$dbname = "if0_37077798_quadiro_db";
 
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-try {
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
