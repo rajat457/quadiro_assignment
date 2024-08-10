@@ -43,6 +43,21 @@ The application has been deployed on AWS EC2 and can be accessed using the links
   - **Username:** user
   - **Password:** password123
 
+## Running the Project Locally 🖥️
+
+To run this project on your local machine:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rajat457/quadiro_assignment
+   cd quadiro_assignment
+
+2. Run the project on a local PHP server:
+   ```bash
+   php -S localhost:8000
+ 
+3. Access the project at http://localhost:8000 .
+
  ## Screenshots 📸
 
 ### Home Screen 🏠
@@ -64,18 +79,3 @@ The application has been deployed on AWS EC2 and can be accessed using the links
 ### User Dashboard 📋
 ![Screenshot 2024-08-10 212724](https://github.com/user-attachments/assets/11dd747c-bf7c-44de-aa29-017f12154a6b)
 
-
-## Running the Project Locally 🖥️
-
-To run this project on your local machine:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/rajat457/quadiro_assignment
-   cd quadiro_assignment
-
-2. Run the project on a local PHP server:
-   ```bash
-   php -S localhost:8000
- 
-3. Access the project at http://localhost:8000 .
