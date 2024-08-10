@@ -1,24 +1,20 @@
 <?php
 include '../models/car.php';
 
-// Display errors for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-if (isset($_GET['id'])) {
-    $id = (int)$_GET['id'];
-    $car = getCarById($id);
-}
+// Retrieve car ID from URL
+$id = $_GET['id'];
+$car = getCarById($id);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $carName = $_POST['car_name'];
     $manufacturingYear = $_POST['manufacturing_year'];
     $price = $_POST['price'];
 
+    // Update car details
     updateCar($id, $carName, $manufacturingYear, $price);
 
-    header('Location: ../views/dashboard.php');
+    // Redirect to dashboard
+    header("Location: ../views/dashboard.php");
     exit();
 }
 ?>
@@ -50,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-primary">Update Car</button>
         </form>
     </div>
+
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
