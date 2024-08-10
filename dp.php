@@ -3,6 +3,7 @@ $servername = "sql110.infinityfree.com";
 $username = "if0_37077798";
 $password = "IbUh9VlbleeE";
 $dbname = "if0_37077798_quadiro_db";
+$port = 3306; // MySQL default port
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
